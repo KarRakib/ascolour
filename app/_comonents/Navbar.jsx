@@ -57,19 +57,19 @@ const Navbar = () => {
                             <li>Journal</li>
                         </ul>
                     </div>
-                    <div className='flex gap-5'>
+                   { search ? <SearchBar closeAllModals={closeAllModals}/> : <div className='flex gap-5'>
                         <button onClick={handleClickSearch}>Search</button>
                         <button onClick={handleClickShop}>Cart</button>
                         <button onClick={handleClickUser}>Sign In</button>
                         <button className='bg-[#AFD9D8] rounded-full px-2 py-1.5'>Create Account</button>
-                    </div>
+                    </div>}
                 </div>
 
             </div>
             {/* mobile */}
             <div className='px-5 py-2 md:hidden bg-black text-white flex justify-between '>
-                {isMenuOpen || isUser || shopping || search ? <div className='flex place-items-center'> <IoMdClose onClick={closeAllModals} /> Close  </div> :
-                    <>
+                {isMenuOpen || isUser || shopping || search ? <><div className='flex place-items-center'> <IoMdClose onClick={closeAllModals} /> Close  </div>  {search&&<SearchBar/>}</>
+                      :<>
                         <div className='flex text-center place-items-center gap-3 '>
                             <RxHamburgerMenu onClick={handleClick} />
                             <h3 className='text-xl pr-5'> Ascolour.</h3>
@@ -109,23 +109,23 @@ const Navbar = () => {
 
             </div>
             {/* Login */}
-            <div className={`absolute top-5 md:top-10  right-0 w-full md:w-96 h-full bg-[#090909] text-white flex flex-col p-4 mt-5  z-50 transform transition-transform duration-300 ${isUser ? "translate-y-0" : "translate-x-full"
+            {isUser&& <div className={`absolute top-5 md:top-10  right-0 w-full md:w-96 h-full bg-[#090909] text-white flex flex-col p-4 mt-5  z-50 transform transition-transform duration-300 ${isUser ? "translate-y-0" : "translate-x-full"
                 }`}>
                 <LoginForm closeAllModals={closeAllModals} isUser={isUser} />
-            </div>
+            </div>}
 
             {/* Shopping  */}
-            <div className={`absolute top-5 md:top-10 right-0 w-full md:w-4/12 h-full bg-[#090909] text-white flex flex-col p-4 mt-5 z-50 transform transition-transform duration-300 ${shopping ? "translate-y-0" : "translate-x-full"
+            {shopping &&<div className={`absolute top-5 md:top-10 right-0 w-full md:w-4/12 h-full bg-[#090909] text-white flex flex-col p-4 mt-5 z-50 transform transition-transform duration-300 ${shopping ? "translate-y-0" : "translate-x-full"
                 }`}>
                 <AddToCart closeAllModals={closeAllModals} />
-            </div>
+            </div>}
             {/* searchbar  */}
-            <div className={`absolute top-5 right-0 w-full h-full bg-[#090909] text-white flex flex-col p-4 mt-5  z-50 transform transition-transform duration-300 ${search ? "translate-x-0" : "translate-x-full"
-                }`}>
+            {/* <div className={`absolute top-5 right-0 w-full h-full bg-[#090909] text-white flex flex-col p-4 mt-5  z-50 transform transition-transform duration-300 ${search ? "translate-x-0" : "translate-x-full" */}
+                {/* }`}> */}
 
-                {search && <SearchBar/>}
+                {/* {search && <SearchBar/>} */}
 
-            </div>
+            {/* </div> */}
         </div>
     )
 }
