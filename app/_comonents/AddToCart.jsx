@@ -1,13 +1,17 @@
 import React from 'react'
+import { IoMdClose } from 'react-icons/io'
 
-export const AddToCart = () => {
+export const AddToCart = ({closeAllModals}) => {
   return (
     <div>
         
-        <div class="font-sans md:max-w-4xl max-md:max-w-xl mx-auto bg-white py-4">
-            <div class="grid md:grid-cols-3 gap-4">
-                <div class="md:col-span-2 bg-gray-100 p-4 rounded-md">
+        <div class="font-sans  mx-auto bg-white py-4">
+            <div class="grid md:grid-cols- gap-4">
+                <div class="md:col-span- bg-gray-100 p-1 rounded-md">
+                    <div className='flex justify-between'>
                     <h2 class="text-2xl font-bold text-gray-800">Cart</h2>
+                    <button onClick={closeAllModals} className=' md:flex hidden place-items-center m-2 text-2xl font-extrabold text-black'> <IoMdClose  />  </button>
+                    </div>
                     <hr class="border-gray-300 mt-4 mb-8" />
 
                     <div class="space-y-4">
