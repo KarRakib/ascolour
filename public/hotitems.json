@@ -46,6 +46,56 @@
         "title": "Canvas Pants 5982",
         "category":"Workwear",
         "price":"50.00"
+    },
+    {
+        "image":"/images/Staple-Active-Blend-Tank.jpg",
+        "title": "Staple-Active-Blend-Tank",
+        "category":"Activewear",
+        "price":"50.00"
+    },
+    
+    {
+        "image":"/images/Wo's-Active-Leggings.jpg",
+        "title": "Wo's-Active-Leggings",
+        "category":"Activewear",
+        "price":"50.00"
+    },
+    {
+        "image":"/images/Active-Finn-Cap.jpg",
+        "title": "Active-Finn-Cap",
+        "category":"Activewear",
+        "price":"50.00"
+    },
+    {
+        "image":"/images/Wo's-Active-Shorts.png",
+        "title": "Wo's-Active-Shorts",
+        "category":"Activewear",
+        "price":"50.00"
+    },
+    {
+        "image":"/images/Wo's-Martina-L-S-Tee.jpg",
+        "title": "Wo's-Martina-L-S-Tee",
+        "category":"Womenswear",
+        "price":"50.00"
+    },
+    
+    {
+        "image":"/images/Wo's-Heavy-Crew.jpg",
+        "title": "Wo's-Heavy-Crew",
+        "category":"Womenswear",
+        "price":"50.00"
+    },
+    {
+        "image":"/images/Wo's-Organic-Rib-Tank.jpg",
+        "title": "Wo's-Organic-Rib-Tank",
+        "category":"Womenswear",
+        "price":"50.00"
+    },
+    {
+        "image":"/images/Wo's-Relax-Track-Pants.jpg",
+        "title": "Wo's-Relax-Track-Pants",
+        "category":"Womenswear",
+        "price":"50.00"
     }
 
 ]

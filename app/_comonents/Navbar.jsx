@@ -38,7 +38,7 @@ const Navbar = () => {
     };
 
     return (
-        <div>
+        <div className='sticky'>
 
 
             <div className=' hidden md:block px-10 py-4 bg-black text-white'>

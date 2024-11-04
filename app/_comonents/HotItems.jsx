@@ -32,7 +32,7 @@ const HotItems = () => {
 
                 <div className='flex p-5 bg-[#FAFAFA]'>
                     <p className='w-1/3 text-2xl font-bold hidden md:block'> {nav} </p>
-                    <ul className="flex justify-center md:gap-4 gap-2 md:pl-20 text-black font-extrabold">
+                    <ul className="flex justify-center md:gap-4 gap-1 md:pl-20 text-black font-extrabold">
                         {['New', 'Workwear', 'Activewear', 'Womenswear'].map((item, index) => (
                             <li
                                 key={index}
@@ -47,12 +47,15 @@ const HotItems = () => {
                 </div>
             </nav>
             {/* Card  */}
-            <div className='grid grid-cols-4 gap-3'>
+            <div className='grid md:grid-cols-4 grid-cols-2 gap-3 px-8'>
                 {
                     filterData?.map((data, i) => (
-                        <div className='relative border overflow-hidden' key={i}>
-                            <Image className='md:w-72 object-button md:h-60 w-44 scale-110' src={data.image} width={230} height={150} alt='kar' />
-                            
+                        <div className='relative border h-72 md:w-72  md:h-80 w-56' key={i}>
+                            <Image className=' object-right-top mb-5' src={data.image} width={230} height={150} alt='kar' />
+                            <div className='mt-6'>
+                            <h3 className='absolute bottom-5 md:bottom-11 left-3'>{data.title}</h3>
+                            <p className='absolute bottom-1 md:bottom-5 left-3'>${data.price}</p>
+                            </div>
                         </div>
                     ))
                 }
