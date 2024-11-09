@@ -38,7 +38,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className='sticky'>
+        <div className=''>
 
 
             <div className=' hidden md:block px-10 py-4 bg-black text-white'>
@@ -48,13 +48,13 @@ const Navbar = () => {
                     <div className='flex gap-3 text-center place-items-center '>
                         <h3 className='text-xl pr-5'> Ascolour.</h3>
                         <ul className='flex gap-7'>
-                            <li>Men</li>
-                            <li>Women</li>
-                            <li>Headwear</li>
-                            <li>Accessories</li>
-                            <li>Kids</li>
-                            <li>About</li>
-                            <li>Journal</li>
+                           <Link href={'/men'}> <li>Men</li></Link>
+                           <Link href={'/men'}> <li>Women</li></Link>
+                           <Link href={'/men'}> <li>Headwear</li></Link>
+                           <Link href={'/men'}> <li>Accessories</li></Link>
+                           <Link href={'/men'}> <li>Kids</li></Link>
+                           <Link href={'/men'}> <li>About</li></Link>
+                           <Link href={'/men'}> <li>Journal</li></Link>
                         </ul>
                     </div>
                    { search ? <SearchBar closeAllModals={closeAllModals}/> : <div className='flex gap-5'>

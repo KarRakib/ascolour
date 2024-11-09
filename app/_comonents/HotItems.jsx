@@ -4,25 +4,25 @@ import React from 'react'
 
 const HotItems = () => {
     const [nav, setNav] = React.useState('New');
-  const [datas, setDatas] = React.useState([]);
-  const [filterData, setFilterData] = React.useState([]);
+    const [datas, setDatas] = React.useState([]);
+    const [filterData, setFilterData] = React.useState([]);
 
-  const handleClickNave = (value) => {
-    setNav(value);
-    // Filter data based on the new `nav` value
-    const filtered = datas.filter(data => data.category === value);
-    setFilterData(filtered);
-  };
+    const handleClickNave = (value) => {
+        setNav(value);
+        // Filter data based on the new `nav` value
+        const filtered = datas.filter(data => data.category === value);
+        setFilterData(filtered);
+    };
 
-  React.useEffect(() => {
-    fetch('/hotitems.json')
-      .then(res => res.json())
-      .then(data => {
-        setDatas(data);
-        // Initialize `filterData` with the first filter based on the default `nav`
-        setFilterData(data.filter(item => item.category === 'New'));
-      });
-  }, []);
+    React.useEffect(() => {
+        fetch('/hotitems.json')
+            .then(res => res.json())
+            .then(data => {
+                setDatas(data);
+                // Initialize `filterData` with the first filter based on the default `nav`
+                setFilterData(data.filter(item => item.category === 'New'));
+            });
+    }, []);
 
 
     return (
@@ -52,9 +52,12 @@ const HotItems = () => {
                     filterData?.map((data, i) => (
                         <div className='relative border h-72 md:w-72  md:h-80 w-56' key={i}>
                             <Image className=' object-right-top mb-5' src={data.image} width={230} height={150} alt='kar' />
+                            {
+                                data.category  === "New"&& <p className='absolute top-5 left-3 font-semibold'> New </p>
+                            }
                             <div className='mt-6'>
-                            <h3 className='absolute bottom-5 md:bottom-11 left-3'>{data.title}</h3>
-                            <p className='absolute bottom-1 md:bottom-5 left-3'>${data.price}</p>
+                                <h3 className='absolute bottom-5 md:bottom-11 left-3'>{data.title}</h3>
+                                <p className='absolute bottom-1 md:bottom-5 left-3'>${data.price}</p>
                             </div>
                         </div>
                     ))
@@ -62,6 +65,6 @@ const HotItems = () => {
             </div>
         </div>
     )
-} 
+}
 
 export default HotItems
