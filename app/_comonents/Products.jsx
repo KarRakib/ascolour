@@ -1,20 +1,12 @@
 import React from 'react'
 import FilterModal from './FilterModal';
 
-const Products = () => {
+const Products = ({ products }) => {
   const [isOpenModal, setIsOpenModal] = React.useState(false)
   const [mainImageIndex, setMainImageIndex] = React.useState(0);
-  const [products, setproducts] = React.useState([]);
-
-  React.useEffect(() => {
-    fetch('/hotitems.json')
-    .then(res => res.json())
-    .then(data =>  setproducts(data))
-
-
-  }, [])
-console.log('16',products);
-
+  console.log('products sm lg', products);
+  const mainCategory = products[0]?.mainCate;
+  console.log("main category:", mainCategory);
 
   const handleModal = () => {
     console.log('Modal');
@@ -64,12 +56,12 @@ console.log('16',products);
                     <svg className="h-5 w-5 text-gray-400 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                       <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m9 5 7 7-7 7" />
                     </svg>
-                    <span className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400 md:ms-2">Electronics</span>
+                    <span className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400 md:ms-2">{mainCategory}</span>
                   </div>
                 </li>
               </ol>
             </nav>
-            <h2 className="mt-3 text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Electronics</h2>
+            <h2 className="mt-3 text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">{mainCategory}</h2>
           </div>
           <div className="flex items-center space-x-4">
             <button
@@ -158,8 +150,8 @@ console.log('16',products);
                           alt={`Thumbnail ${index + 1}`}
                           onClick={() => handleThumbnailClick(index)}
                           className={`w-16 h-16 object-cover rounded-md cursor-pointer border-2 ${mainImageIndex === index
-                              ? "border-blue-500"
-                              : "border-transparent"
+                            ? "border-blue-500"
+                            : "border-transparent"
                             }`}
                         />
                       ))}

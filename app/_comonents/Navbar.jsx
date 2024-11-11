@@ -46,10 +46,10 @@ const Navbar = () => {
                 <div className='flex gap-4 justify-between'>
 
                     <div className='flex gap-3 text-center place-items-center '>
-                        <h3 className='text-xl pr-5'> Ascolour.</h3>
+                        <Link href={'/'} className='text-xl pr-5'> Ascolour.</Link>
                         <ul className='flex gap-7'>
                            <Link href={'/men'}> <li>Men</li></Link>
-                           <Link href={'/men'}> <li>Women</li></Link>
+                           <Link href={'/women'}> <li>Women</li></Link>
                            <Link href={'/men'}> <li>Headwear</li></Link>
                            <Link href={'/men'}> <li>Accessories</li></Link>
                            <Link href={'/men'}> <li>Kids</li></Link>

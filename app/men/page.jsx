@@ -49,9 +49,9 @@ const page = () => {
     const totalSelected = Object.values(selectedFilters).flat().length;
     console.log(selectedFilters);
 React.useEffect(() => {
-  const data = fetch('/asproducts.json')
+ fetch('/asproducts.json')
   .then(res => res.json())
-  .then(data => console.log(data))
+  .then(data => setproducts(data))
 
   
 }, [])
@@ -114,14 +114,14 @@ React.useEffect(() => {
 
 
             <hr className="mt-" />
-            <div className="grid grid-cols-[20%,80%] gap-4">
+            <div className="grid md:grid-cols-[20%,80%] gap-4">
                 {/* Side nav */}
-                <div className=' w-full'>
+                <div className=' hidden md:block w-full'>
                     <ul className="flex flex-col gap-2  p-5">
                         {/* Product Type */}
                         <li>
                             <div className="flex flex-col gap-2">
-                                <span className="font-bold">Product Type</span>
+                                <span className="font-bold text-xl ">Product Type</span>
                                 {['Headwear', 'T-Shirts', 'Hoodies', 'Jackets', 'Short', 'Longeleeves', 'Socks'].map((type) => (
                                     <label key={type} className="flex gap-2 text-sm">
                                         <input
@@ -190,7 +190,7 @@ React.useEffect(() => {
 
                 {/* Products content */}
                 <div className=' w-full'>
-                    <Products/>
+                    <Products products={products}/>
                 </div>
             </div>
         </div>
