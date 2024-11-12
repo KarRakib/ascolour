@@ -10,12 +10,14 @@ import { IoMdClose } from "react-icons/io";
 import { AddToCart } from './AddToCart';
 import LoginForm from './LoginForm';
 import SearchBar from './SearchBar';
+import { AddContext } from '@/Context/Products';
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const [isUser, setIsUser] = React.useState(false);
     const [shopping, setShopping] = React.useState(false);
     const [search, setSearch] = React.useState(false);
-
+    const { cartItems } = React.useContext(AddContext);
+    
     const handleClick = () => {
         setIsMenuOpen((prev) => !prev);
     };
@@ -39,12 +41,8 @@ const Navbar = () => {
 
     return (
         <div className=''>
-
-
             <div className=' hidden md:block px-10 py-4 bg-black text-white'>
-
                 <div className='flex gap-4 justify-between'>
-
                     <div className='flex gap-3 text-center place-items-center '>
                         <Link href={'/'} className='text-xl pr-5'> Ascolour.</Link>
                         <ul className='flex gap-7'>
@@ -59,7 +57,7 @@ const Navbar = () => {
                     </div>
                    { search ? <SearchBar closeAllModals={closeAllModals}/> : <div className='flex gap-5'>
                         <button onClick={handleClickSearch}>Search</button>
-                        <button onClick={handleClickShop}>Cart</button>
+                        <button onClick={handleClickShop}>Cart <span>{cartItems?.length}</span></button>
                         <button onClick={handleClickUser}>Sign In</button>
                         <button className='bg-[#AFD9D8] rounded-full px-2 py-1.5'>Create Account</button>
                     </div>}

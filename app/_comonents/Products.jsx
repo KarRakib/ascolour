@@ -1,5 +1,6 @@
 import React from 'react'
 import FilterModal from './FilterModal';
+import Link from 'next/link';
 
 const Products = ({ products }) => {
   const [isOpenModal, setIsOpenModal] = React.useState(false)
@@ -115,7 +116,7 @@ const Products = ({ products }) => {
             products?.map((product, i) => (
               <div key={i} className="max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden dark:bg-gray-800">
                 {/* Product Image Slider */}
-                <div className="relative">
+                <Link href={product?._id} className="relative">
                   {/* Main Image */}
                   {product?.images?.length > 0 ? (
                     <img
@@ -128,7 +129,7 @@ const Products = ({ products }) => {
                       <span className="text-gray-500 dark:text-gray-400">No Image</span>
                     </div>
                   )}
-                </div>
+                </Link>
 
                 <div className="p-4">
                   {/* Product Title */}

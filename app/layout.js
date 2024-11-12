@@ -2,6 +2,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./_comonents/Navbar";
 import Footer from "./_comonents/Footer";
+import ProductsContext from "@/Context/Products";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -24,13 +26,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar/>
-        {children}
-        <Footer/>
-      </body>
+      <ProductsContext>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+          />
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
+      </ProductsContext>
     </html>
   );
 }

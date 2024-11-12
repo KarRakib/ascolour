@@ -1,13 +1,14 @@
 [
   {
-    "title": "Classic Tee",
+   "_id":"1",
+   "title": "Classic Tee",
     "price": 19.99,
     "mainCate":"Men",
     "category": "T-Shirts",
     "description": "A classic, comfortable tee that goes with any outfit.",
-    "color": ["Black", "White", "Blue"],
+    "colors": ["Black", "White", "Blue"],
     "coreRange": ["Staple", "Classic"],
-    "size": ["S", "M", "L", "XL"],
+    "sizes": ["S", "M", "L", "XL"],
     "productCode": "CT-001",
     "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/640w/products/201/15914/5026_CLASSIC_TEE_FRONT__65120.1.jpg",
@@ -16,14 +17,15 @@
     ]
   },
   {
+    "_id":"2",
     "title": "Relaxed Hoodie",
     "price": 49.99,
     "mainCate":"Men",
     "category": "Hoodies",
     "description": "A cozy, relaxed-fit hoodie perfect for everyday wear.",
-    "color": ["Grey", "Tan", "Green"],
+    "colors": ["Grey", "Tan", "Green"],
     "coreRange": ["Relax", "Icon"],
-    "size": ["XS", "S", "M", "L", "XL", "2XL"],
+    "sizes": ["XS", "S", "M", "L", "XL", "2XL"],
     "productCode": "RH-002",
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/640w/products/202/13156/5027_CLASSIC_POCKET_TEE_BONE_THUMB__75994.1.jpg",
@@ -31,182 +33,195 @@
     ]
   },
   {
+    "_id":"3",
     "title": "Essential Socks",
     "price": 7.99,
     "mainCate":"Men",
     "category": "Socks",
     "description": "Comfortable and durable socks for everyday wear.",
-    "color": ["Black", "White", "Grey"],
+    "colors": ["Black", "White", "Grey"],
     "coreRange": ["Heavy"],
-    "size": ["M", "L"],
+    "sizes": ["M", "L"],
     "productCode": "ES-003",
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/5026/WEB_THUMBNAILS/5026_CLASSIC_TEE_BLACK_THUMB.jpg"
     ]
   },
   {
+    "_id":"4",
     "title": "Athletic Shorts",
     "price": 25.99,
     "mainCate":"Men",
     "category": "Short",
     "description": "Lightweight and comfortable shorts for active days.",
-    "color": ["Blue", "Green"],
+    "colors": ["Blue", "Green"],
     "coreRange": ["Staple", "Icon"],
-    "size": ["S", "M", "L", "XL", "2XL"],
+    "sizes": ["S", "M", "L", "XL", "2XL"],
     "productCode": "AS-004",
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/5026/WEB_THUMBNAILS/5026_CLASSIC_TEE_NAVY_THUMB.jpg"
     ]
   },
   {
+    "_id":"5",
     "title": "Luxe Long Sleeve",
     "price": 29.99,
     "mainCate":"Men",
     "category": "Longeleeves",
     "description": "A soft, luxurious long sleeve for cooler weather.",
-    "color": ["Brown", "White", "Tan"],
+    "colors": ["Brown", "White", "Tan"],
     "coreRange": ["Classic", "Heavy"],
-    "size": ["XS", "S", "M", "L"],
+    "sizes": ["XS", "S", "M", "L"],
     "productCode": "LL-005",
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/640w/products/824/11689/5079_CLASSIC_MINUS_TEE_TURN__48282.1.jpg"
     ]
   },
   {
+    "_id":"6",
     "title": "Lightweight Joggers",
     "price": 35.99,
     "mainCate":"Men",
     "category": "Pants",
     "description": "Perfect for workouts or lounging around.",
-    "color": ["Black", "Grey"],
+    "colors": ["Black", "Grey"],
     "coreRange": ["Staple", "Sport"],
-    "size": ["S", "M", "L", "XL"],
+    "sizes": ["S", "M", "L", "XL"],
     "productCode": "LJ-006",
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/640w/products/310/50323/5051_LIGHTWEIGHT_JOGGERS_FRONT__18423.1.jpg"
     ]
   },
   {
+    "_id":"7",
     "title": "Performance Polo",
     "price": 22.99,
     "mainCate":"Men",
     "category": "Polo",
     "description": "A breathable polo for a smart and casual look.",
-    "color": ["Blue", "White", "Green"],
+    "colors": ["Blue", "White", "Green"],
     "coreRange": ["Classic", "Icon"],
-    "size": ["M", "L", "XL"],
+    "sizes": ["M", "L", "XL"],
     "productCode": "PP-007",
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/640w/products/823/11687/5078_PERFORMANCE_POLO_FRONT__65210.1.jpg"
     ]
   },
   {
+    "_id":"8",
     "title": "Summer Cap",
     "price": 15.99,
     "mainCate":"Men",
     "category": "Hats",
     "description": "A lightweight cap ideal for sunny days.",
-    "color": ["Red", "Black", "Blue"],
+    "colors": ["Red", "Black", "Blue"],
     "coreRange": ["Seasonal"],
-    "size": ["M", "L", "XL"],
+    "sizes": ["M", "L", "XL"],
     "productCode": "SC-008",
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/640w/products/511/15919/5026_CLASSIC_TEE_BACK__96741.1.jpg"
     ]
   },
   {
+    "_id":"9",
     "title": "Thermal Sweatshirt",
     "price": 39.99,
     "mainCate":"Men",
     "category": "Sweatshirts",
     "description": "Stay warm with this cozy thermal sweatshirt.",
-    "color": ["Black", "White"],
+    "colors": ["Black", "White"],
     "coreRange": ["Heavy", "Winter"],
-    "size": ["S", "M", "L", "XL", "2XL"],
+    "sizes": ["S", "M", "L", "XL", "2XL"],
     "productCode": "TS-009",
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/640w/products/307/15919/5026_CLASSIC_TEE_FRONT__96841.1.jpg"
     ]
   },
   {
+    "_id":"10",
     "title": "Cargo Pants",
     "price": 39.99,
     "mainCate":"Men",
     "category": "Pants",
     "description": "Stylish and functional cargo pants with plenty of pockets.",
-    "color": ["Olive", "Black"],
+    "colors": ["Olive", "Black"],
     "coreRange": ["Utility"],
-    "size": ["M", "L", "XL"],
+    "sizes": ["M", "L", "XL"],
     "productCode": "CP-010",
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/640w/products/508/15919/5026_CLASSIC_TEE_BACK__96741.1.jpg"
     ]
   },
   {
+    "_id":"11",
     "title": "Vintage Denim Jacket",
     "price": 69.99,
     "mainCate":"Men",
     "category": "Jackets",
     "description": "A rugged vintage denim jacket for a classic look.",
-    "color": ["Blue", "Black"],
+    "colors": ["Blue", "Black"],
     "coreRange": ["Classic", "Icon"],
-    "size": ["S", "M", "L", "XL"],
+    "sizes": ["S", "M", "L", "XL"],
     "productCode": "VDJ-011",
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/640w/products/310/11689/5079_CLASSIC_MINUS_TEE_TURN__48822.1.jpg"
     ]
   },
   {
+    "_id":"12",
     "title": "Basic Cap",
     "price": 12.99,
     "mainCate":"Men",
     "category": "Hats",
     "description": "A minimalist cap perfect for everyday wear.",
-    "color": ["Black", "White", "Grey"],
+    "colors": ["Black", "White", "Grey"],
     "coreRange": ["Staple"],
-    "size": ["M", "L", "XL"],
+    "sizes": ["M", "L", "XL"],
     "productCode": "BC-012",
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/640w/products/508/15919/5026_CLASSIC_TEE_BACK__96741.1.jpg"
     ]
   },
   {
+    "_id":"13",
     "title": "Graphic Tee",
     "price": 19.99,
     "mainCate":"Men",
     "category": "T-Shirts",
     "description": "A tee with a bold graphic design.",
-    "color": ["White", "Blue"],
+    "colors": ["White", "Blue"],
     "coreRange": ["Seasonal"],
-    "size": ["S", "M", "L", "XL"],
+    "sizes": ["S", "M", "L", "XL"],
     "productCode": "GT-013",
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/640w/products/308/15919/5026_CLASSIC_TEE_FRONT__96741.1.jpg"
     ]
   },
   {
+    "_id":"14",
     "title": "Chino Shorts",
     "price": 27.99,
     "mainCate":"Men",
     "category": "Short",
     "description": "Versatile and comfortable chino shorts.",
-    "color": ["Beige", "Navy", "Olive"],
+    "colors": ["Beige", "Navy", "Olive"],
     "coreRange": ["Staple"],
-    "size": ["S", "M", "L", "XL"],
+    "sizes": ["S", "M", "L", "XL"],
     "productCode": "CS-014",
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/5026/WEB_THUMBNAILS/5026_CLASSIC_TEE_BLACK_THUMB.jpg"
     ]
   },
   {
+    "_id":"15",
     "title": "Heavy-Duty Work Pants",
     "price": 45.99,
     "mainCate":"Men",
     "category": "Pants",
     "description": "Durable pants for tough work environments.",
-    "color": ["Black", "Grey", "Khaki"],
+    "colors": ["Black", "Grey", "Khaki"],
     "coreRange": ["Utility", "Heavy"],
-    "size": ["M", "L", "XL"],
+    "sizes": ["M", "L", "XL"],
     "productCode": "HWP-015",
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/5026/WEB_THUMBNAILS/5026_CLASSIC_TEE_NAVY_THUMB.jpg"
