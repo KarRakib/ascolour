@@ -1,26 +1,31 @@
 'use client'
 import React, { createContext, useState } from 'react'
 import toast from 'react-hot-toast'
+
 export const AddContext = createContext()
+
 const ProductsContext = ({ children }) => {
   const [cartItems, setCartItems] = useState([])
-  const [user, setUser] = useState({ name: 'John Doe', email: 'john@example.com' }); // Example user data
-  const addToCart = (id) => {
-    console.log('addID',id);
+  const [user, setUser] = useState({ name: 'John Doe', email: 'john@example.com' }) // Example user data
+  
+  const addToCart = (product) => {
+    console.log('addID', product)
     
-    const alreadyExit = cartItems.find(cart=> cart.id === id)
-    if (alreadyExit) {
-      toast
-      return toast.error("This didn't work.");
-    }
-    else{
-      setCartItems([...cartItems,{id}])
-    }
-    console.log('context alrex',cartItems);
+    // Use `find` to check if the product is already in the cart
+    const alreadyExists = cartItems.find(cart => cart.id === product.id)
     
+    if (alreadyExists) {
+      return toast.error("This item is already in the cart.")
+    } else {
+      setCartItems([...cartItems, product])
+      toast.success("Item added to cart!")
+    }
+    
+    console.log('Updated cart:', cartItems)
   }
+
   return (
-    <AddContext.Provider value={{ user,addToCart,cartItems }}>
+    <AddContext.Provider value={{ user, addToCart, cartItems }}>
       {children}
     </AddContext.Provider>
   )
