@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { IoMdClose } from 'react-icons/io'
 
 export const AddToCart = ({closeAllModals}) => {
-    const {cartItems} = useContext(AddContext)
+    const {cartItems,setCartItems} = useContext(AddContext)
     console.log('from addtocart',cartItems);
     const totals = cartItems.reduce(
         (acc, product) => {
@@ -15,14 +15,21 @@ export const AddToCart = ({closeAllModals}) => {
       );
       
       console.log("Total Quantity:", totals.totalQuantity);
-      console.log("Total Price:", totals.totalPrice.toFixed(2));
+      const total = parseFloat(totals.totalPrice.toFixed(2));
+      const tax = parseFloat((total * 0.10).toFixed(3)); // 10% tax, rounded to 3 decimal places
+      const totalAmount = parseFloat((total + tax + 10).toFixed(3));
+  const handleDelete =(id)=>{
+    const restProducts = cartItems.filter(cart=> cart.id !==id)
+    setCartItems(restProducts)
+    localStorage.setItem('cartItems', JSON.stringify(restProducts))
+  }
     
     
     
   return (
     <div>  
         <div className="font-sans  mx-auto bg-white py-4">
-            <div className="grid md:grid-cols- gap-4">
+            {!cartItems.length>0? <div className='h-40 bg-slate-500'> <h2 className='text-black text-2xl'>No Cart Add</h2></div>:<div className="grid md:grid-cols- gap-4">
                 <div className="md:col-span- bg-gray-100 p-1 rounded-md">
                     <div className='flex justify-between'>
                     <h2 className="text-2xl font-bold text-gray-800">Cart</h2>
@@ -39,7 +46,7 @@ export const AddToCart = ({closeAllModals}) => {
 
                                 <div>
                                     <h3 className="text-base font-bold text-gray-800">{cart.title} </h3>
-                                    <h6 className="text-xs text-red-500 cursor-pointer mt-0.5">Remove</h6>
+                                    <h6 onClick={()=> handleDelete(cart.id)} className="text-xs text-red-500 cursor-pointer mt-0.5">Remove</h6>
 
                                     <div className="flex gap-4 mt-4">
                                         <div className="relative group">
@@ -65,7 +72,7 @@ export const AddToCart = ({closeAllModals}) => {
                                 </div>
                             </div>
                             <div className="ml-auto">
-                                <h4 className="text-base font-bold text-gray-800">${ cart.quantity*cart.price.toFixed(2)}</h4>
+                                <h4 className="text-base font-bold text-gray-800">${ (cart.quantity*cart.price).toFixed(2)}</h4>
                             </div>
                         </div>))}
 
@@ -85,9 +92,9 @@ export const AddToCart = ({closeAllModals}) => {
 
                     <ul className="text-gray-800 mt-8 space-y-4">
                         <li className="flex flex-wrap gap-4 text-base">Discount <span className="ml-auto font-bold">$0.00</span></li>
-                        <li className="flex flex-wrap gap-4 text-base">Shipping <span className="ml-auto font-bold">$2.00</span></li>
-                        <li className="flex flex-wrap gap-4 text-base">Tax <span className="ml-auto font-bold">$4.00</span></li>
-                        <li className="flex flex-wrap gap-4 text-base font-bold">Total <span className="ml-auto">${56} </span></li>
+                        <li className="flex flex-wrap gap-4 text-base">Shipping <span className="ml-auto font-bold">$5.00</span></li>
+                        <li className="flex flex-wrap gap-4 text-base">Tax 10% <span className="ml-auto font-bold">${tax}</span></li>
+                        <li className="flex flex-wrap gap-4 text-base font-bold">Total <span className="ml-auto">${totalAmount} </span></li>
                     </ul>
 
                     <div className="mt-8 space-y-2">
@@ -95,7 +102,7 @@ export const AddToCart = ({closeAllModals}) => {
                         <button type="button" className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-transparent text-gray-800 border border-gray-300 rounded-md">Continue Shopping  </button>
                     </div>
                 </div>
-            </div>
+            </div>}
         </div>
     </div>
   )

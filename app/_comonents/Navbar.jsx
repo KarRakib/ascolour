@@ -17,7 +17,7 @@ const Navbar = () => {
     const [shopping, setShopping] = React.useState(false);
     const [search, setSearch] = React.useState(false);
     const { cartItems } = React.useContext(AddContext);
-    
+
     const handleClick = () => {
         setIsMenuOpen((prev) => !prev);
     };
@@ -46,18 +46,18 @@ const Navbar = () => {
                     <div className='flex gap-3 text-center place-items-center '>
                         <Link href={'/'} className='text-xl pr-5'> Ascolour.</Link>
                         <ul className='flex gap-7'>
-                           <Link href={'/men'}> <li>Men</li></Link>
-                           <Link href={'/women'}> <li>Women</li></Link>
-                           <Link href={'/men'}> <li>Headwear</li></Link>
-                           <Link href={'/men'}> <li>Accessories</li></Link>
-                           <Link href={'/men'}> <li>Kids</li></Link>
-                           <Link href={'/men'}> <li>About</li></Link>
-                           <Link href={'/men'}> <li>Journal</li></Link>
+                            <Link href={'/men'}> <li>Men</li></Link>
+                            <Link href={'/women'}> <li>Women</li></Link>
+                            <Link href={'/men'}> <li>Headwear</li></Link>
+                            <Link href={'/men'}> <li>Accessories</li></Link>
+                            <Link href={'/men'}> <li>Kids</li></Link>
+                            <Link href={'/men'}> <li>About</li></Link>
+                            <Link href={'/men'}> <li>Journal</li></Link>
                         </ul>
                     </div>
-                   { search ? <SearchBar closeAllModals={closeAllModals}/> : <div className='flex gap-5'>
+                    {search ? <SearchBar closeAllModals={closeAllModals} /> : <div className='flex gap-5'>
                         <button onClick={handleClickSearch}>Search</button>
-                        <button onClick={handleClickShop}>Cart <span>{cartItems?.length}</span></button>
+                        <button className='relative' onClick={handleClickShop}>Cart <span className='absolute bottom-5 left-6 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full'>{cartItems?.length}</span></button>
                         <button onClick={handleClickUser}>Sign In</button>
                         <button className='bg-[#AFD9D8] rounded-full px-2 py-1.5'>Create Account</button>
                     </div>}
@@ -66,15 +66,22 @@ const Navbar = () => {
             </div>
             {/* mobile */}
             <div className='px-5 py-2 md:hidden bg-black text-white flex justify-between '>
-                {isMenuOpen || isUser || shopping || search ? <><div className='flex place-items-center'> <IoMdClose onClick={closeAllModals} /> Close  </div>  {search&&<SearchBar/>}</>
-                      :<>
+                {isMenuOpen || isUser || shopping || search ? <><div className='flex place-items-center'> <IoMdClose onClick={closeAllModals} /> Close  </div>  {search && <SearchBar />}</>
+                    : <>
                         <div className='flex text-center place-items-center gap-3 '>
                             <RxHamburgerMenu onClick={handleClick} />
                             <h3 className='text-xl pr-5'> Ascolour.</h3>
                         </div>
                         <div className='flex gap-4 text-xl'>
                             <button><IoSearchOutline onClick={handleClickSearch} /> </button>
-                            <button><AiOutlineShopping onClick={handleClickShop} /></button>
+                            <button onClick={handleClickShop} className="relative">
+                                <AiOutlineShopping className="text-xl" />
+                                {cartItems.length > 0 && (
+                                    <span className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+                                        {cartItems.length}
+                                    </span>
+                                )}
+                            </button>
                             <button><FaRegUser onClick={handleClickUser} /> </button>
                         </div>
                     </>
@@ -107,21 +114,21 @@ const Navbar = () => {
 
             </div>
             {/* Login */}
-            {isUser&& <div className={`absolute top-5 md:top-10  right-0 w-full md:w-96 h-full bg-[#090909] text-white flex flex-col p-4 mt-5  z-50 transform transition-transform duration-300 ${isUser ? "translate-y-0" : "translate-x-full"
+            {isUser && <div className={`absolute top-5 md:top-10  right-0 w-full md:w-96 h-full bg-[#090909] text-white flex flex-col p-4 mt-5  z-50 transform transition-transform duration-300 ${isUser ? "translate-y-0" : "translate-x-full"
                 }`}>
                 <LoginForm closeAllModals={closeAllModals} isUser={isUser} />
             </div>}
 
             {/* Shopping  */}
-            {shopping &&<div className={`absolute top-5 md:top-10 right-0 w-full md:w-4/12 h-full bg-[#090909] text-white flex flex-col p-4 mt-5 z-50 transform transition-transform duration-300 ${shopping ? "translate-y-0" : "translate-x-full"
+            {shopping && <div className={`absolute top-5 md:top-10 right-0 w-full md:w-4/12 h-full bg-[#090909] text-white flex flex-col p-4 mt-5 z-50 transform transition-transform duration-300 ${shopping ? "translate-y-0" : "translate-x-full"
                 }`}>
                 <AddToCart closeAllModals={closeAllModals} />
             </div>}
             {/* searchbar  */}
             {/* <div className={`absolute top-5 right-0 w-full h-full bg-[#090909] text-white flex flex-col p-4 mt-5  z-50 transform transition-transform duration-300 ${search ? "translate-x-0" : "translate-x-full" */}
-                {/* }`}> */}
+            {/* }`}> */}
 
-                {/* {search && <SearchBar/>} */}
+            {/* {search && <SearchBar/>} */}
 
             {/* </div> */}
         </div>
