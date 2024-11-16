@@ -11,19 +11,22 @@ import { AddToCart } from './AddToCart';
 import LoginForm from './LoginForm';
 import SearchBar from './SearchBar';
 import { AddContext } from '@/Context/Products';
+import { useUser } from '@clerk/nextjs';
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const {user} = useUser()
     const [isUser, setIsUser] = React.useState(false);
     const [shopping, setShopping] = React.useState(false);
     const [search, setSearch] = React.useState(false);
     const { cartItems } = React.useContext(AddContext);
+console.log('user', user);
 
     const handleClick = () => {
         setIsMenuOpen((prev) => !prev);
     };
     const handleClickUser = () => {
-        setIsUser((prev) => !prev);
-        console.log(isUser);
+        // setIsUser((prev) => !prev);
+        // console.log(isUser);
 
     };
     const handleClickShop = () => {
@@ -61,10 +64,10 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    {search ? <SearchBar closeAllModals={closeAllModals} /> : <div className='flex gap-5'>
+                    {search ? <SearchBar closeAllModals={closeAllModals} /> : <div className='flex gap-5 place-items-center'>
                         <button onClick={handleClickSearch}>Search</button>
                         <button className='relative' onClick={handleClickShop}>Cart {cartItems.length > 0 && <span className='absolute bottom-5 left-6 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full'>{cartItems?.length}</span>}</button>
-                        <button onClick={handleClickUser}>Sign In</button>
+                        {user? <img className='w-8 h-8 rounded-full' src={user.imageUrl} alt="" srcset="" /> : <button onClick={handleClickUser}>Sign In</button>}
                         <button className='bg-[#AFD9D8] rounded-full px-2 py-1.5'>Create Account</button>
                     </div>}
                 </div>
@@ -72,7 +75,7 @@ const Navbar = () => {
             </div>
             {/* mobile */}
             <div className='px-5 py-2 md:hidden bg-black text-white flex justify-between '>
-                {isMenuOpen || isUser || shopping || search ? <><div className='flex place-items-center'> <IoMdClose onClick={closeAllModals} /> Close  </div>  {search && <SearchBar />}</>
+                {isMenuOpen || user || shopping || search ? <><div className='flex place-items-center'> <IoMdClose onClick={closeAllModals} /> Close  </div>  {search && <SearchBar />}</>
                     : <>
                         <div className='flex text-center place-items-center gap-3 '>
                             <RxHamburgerMenu onClick={handleClick} />
@@ -116,7 +119,7 @@ const Navbar = () => {
 
             </div>
             {/* Login */}
-            {isUser && <div className={`absolute top-5 md:top-10  right-0 w-full md:w-96 h-full bg-[#090909] text-white flex flex-col p-4 mt-5  z-50 transform transition-transform duration-300 ${isUser ? "translate-y-0" : "translate-x-full"
+            {user && <div className={`absolute top-5 md:top-10  right-0 w-full md:w-96 h-full bg-[#090909] text-white flex flex-col p-4 mt-5  z-50 transform transition-transform duration-300 ${isUser ? "translate-y-0" : "translate-x-full"
                 }`}>
                 <LoginForm closeAllModals={closeAllModals} isUser={isUser} />
             </div>}

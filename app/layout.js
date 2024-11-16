@@ -4,6 +4,7 @@ import Navbar from "./_comonents/Navbar";
 import Footer from "./_comonents/Footer";
 import ProductsContext from "@/Context/Products";
 import { Toaster } from "react-hot-toast";
+import { ClerkProvider } from "@clerk/nextjs";
 
 
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <ProductsContext>
+      <ClerkProvider>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
@@ -38,6 +40,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </body>
+        </ClerkProvider>
       </ProductsContext>
     </html>
   );
