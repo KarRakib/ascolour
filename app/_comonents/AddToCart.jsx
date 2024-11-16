@@ -48,7 +48,7 @@ export const AddToCart = ({closeAllModals}) => {
                                     <h3 className="text-base font-bold text-gray-800">{cart.title} </h3>
                                     <h6 onClick={()=> handleDelete(cart.id)} className="text-xs text-red-500 cursor-pointer mt-0.5">Remove</h6>
 
-                                    <div className="flex gap-4 mt-4">
+                                    <div className="flex gap-4 mt-4 w-full">
                                         <div className="relative group">
                                             <button type="button"
                                                 className="flex items-center px-2.5 py-1.5 border border-gray-300 text-gray-800 text-xs outline-none bg-transparent rounded-md">

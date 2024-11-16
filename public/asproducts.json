@@ -226,6 +226,76 @@
    "images": [
       "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/5026/WEB_THUMBNAILS/5026_CLASSIC_TEE_NAVY_THUMB.jpg"
     ]
-  }
+  },
+    {
+      "_id": "01",
+      "title": "Classic Tee - Powder",
+      "price": 29.99,
+      "mainCate": "Women",
+      "category": "T-Shirts",
+      "description": "A classic tee with a comfortable, relaxed fit.",
+      "colors": ["Powder", "Grey Marle", "Navy"],
+      "coreRange": ["Classic"],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "productCode": "CT-001",
+      "images": [
+        "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/640w/products/515/17320/4026_WOS_CLASSIC_TEE_POWDER_THUMB__54500.1.jpg",
+        "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/4026/WEB_THUMBNAILS/4026_WOS_CLASSIC_TEE_NAVY_THUMB_1.jpg",
+        "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/4026/WEB_THUMBNAILS/4026_WOS_CLASSIC_TEE_GREY_MARLE_THUMB_1.jpg"
+      ]
+    },
+    {
+      "_id": "02",
+      "title": "Classic Tee - Ecru",
+      "price": 29.99,
+      "mainCate": "Women",
+      "category": "T-Shirts",
+      "description": "A stylish and comfortable ecru-colored tee.",
+      "colors": ["Ecru", "White", "Storm"],
+      "coreRange": ["Classic"],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "productCode": "CT-002",
+      "images": [
+        "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/4026/WEB_THUMBNAILS/4026_WOS_CLASSIC_TEE_ECRU_THUMB.jpg",
+        "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/4026/WEB_THUMBNAILS/4026_WOS_CLASSIC_TEE_WHITE_THUMB.jpg",
+        "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/4026/WEB_THUMBNAILS/4026_WOS_CLASSIC_TEE_STORM_THUMB.jpg"
+      ]
+    },
+    {
+      "_id": "03",
+      "title": "Classic Tee - Sand",
+      "price": 29.99,
+      "mainCate": "Women",
+      "category": "T-Shirts",
+      "description": "A versatile tee in a neutral sand color.",
+      "colors": ["Sand", "Powder", "Orchid"],
+      "coreRange": ["Classic"],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "productCode": "CT-003",
+      "images": [
+        "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/4026/WEB_THUMBNAILS/4026_WOS_CLASSIC_TEE_SAND_THUMB_2.jpg",
+        "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/4026/WEB_THUMBNAILS/4026_WOS_CLASSIC_TEE_POWDER_THUMB.jpg",
+        "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/4026/WEB_THUMBNAILS/4026_WOS_CLASSIC_TEE_ORCHID_THUMB.jpg"
+      ]
+    },
+    {
+      "_id": "04",
+      "title": "Classic Tee - Hazy Pink",
+      "price": 29.99,
+      "mainCate": "Women",
+      "category": "T-Shirts",
+      "description": "A beautiful tee in a soft hazy pink color.",
+      "colors": ["Hazy Pink", "Eucalyptus", "Chestnut"],
+      "coreRange": ["Classic"],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "productCode": "CT-004",
+      "images": [
+        "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/4026/WEB_THUMBNAILS/4026_WOS_CLASSIC_TEE_HAZY_PINK_THUMB_2.jpg",
+        "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/4026/WEB_THUMBNAILS/4026_WOS_CLASSIC_TEE_EUCALYPTUS_THUMB.jpg",
+        "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/160x160/uploaded_images/4026/WEB_THUMBNAILS/4026_WOS_CLASSIC_TEE_CHESTNUT_THUMB.jpg"
+      ]
+    }
+  
+  
 
 ]

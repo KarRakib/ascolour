@@ -38,7 +38,16 @@ const Navbar = () => {
         setShopping(false);
         setSearch(false);
     };
-
+    const navs = [
+        { slug: 'men', title: 'Men' },
+        { slug: 'women', title: 'Women' },
+        { slug: 'headwear', title: 'Headwear' },
+        { slug: 'Accessories', title: 'Accessories' },
+        { slug: 'Kids', title: 'Kids' },
+        { slug: 'About', title: 'About' },
+        { slug: 'Journal', title: 'Journal' },
+        // Add more posts as needed
+    ];
     return (
         <div className=''>
             <div className=' hidden md:block px-10 py-4 bg-black text-white'>
@@ -46,18 +55,15 @@ const Navbar = () => {
                     <div className='flex gap-3 text-center place-items-center '>
                         <Link href={'/'} className='text-xl pr-5'> Ascolour.</Link>
                         <ul className='flex gap-7'>
-                            <Link href={'/men'}> <li>Men</li></Link>
-                            <Link href={'/women'}> <li>Women</li></Link>
-                            <Link href={'/men'}> <li>Headwear</li></Link>
-                            <Link href={'/men'}> <li>Accessories</li></Link>
-                            <Link href={'/men'}> <li>Kids</li></Link>
-                            <Link href={'/men'}> <li>About</li></Link>
-                            <Link href={'/men'}> <li>Journal</li></Link>
+                            {navs.map((nav, i) => (
+                                <Link key={i} href={`/${nav.slug}`}> <li>{nav.title}</li></Link>
+                            ))}
+
                         </ul>
                     </div>
                     {search ? <SearchBar closeAllModals={closeAllModals} /> : <div className='flex gap-5'>
                         <button onClick={handleClickSearch}>Search</button>
-                        <button className='relative' onClick={handleClickShop}>Cart <span className='absolute bottom-5 left-6 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full'>{cartItems?.length}</span></button>
+                        <button className='relative' onClick={handleClickShop}>Cart {cartItems.length > 0 && <span className='absolute bottom-5 left-6 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full'>{cartItems?.length}</span>}</button>
                         <button onClick={handleClickUser}>Sign In</button>
                         <button className='bg-[#AFD9D8] rounded-full px-2 py-1.5'>Create Account</button>
                     </div>}
@@ -103,13 +109,9 @@ const Navbar = () => {
                     }`}>
 
                 <ul className='space-y-5 font-bold'>
-                    <Link href={'/'}>  <li className='flex place-items-center justify-between '>Men <FaAngleRight /> </li></Link>
-                    <Link href={'/'}>  <li className='flex place-items-center justify-between '>Women <FaAngleRight /></li></Link>
-                    <Link href={'/'}>  <li className='flex place-items-center justify-between '>Headwear <FaAngleRight /></li></Link>
-                    <Link href={'/'}>  <li className='flex place-items-center justify-between '>Accessories <FaAngleRight /></li></Link>
-                    <Link href={'/'}>  <li className='flex place-items-center justify-between '>Kids <FaAngleRight /></li></Link>
-                    <Link href={'/'}>  <li className='flex place-items-center justify-between '>About <FaAngleRight /></li></Link>
-                    <Link href={'/'}>  <li className='flex place-items-center justify-between '>Journal <FaAngleRight /></li></Link>
+                    {navs.map((nav, i) => (
+                        <Link onClick={closeAllModals} key={i} href={`/${nav.slug}`}>  <li className='flex place-items-center justify-between '>{nav.title} <FaAngleRight /> </li></Link>
+                    ))}
                 </ul>
 
             </div>
