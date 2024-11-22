@@ -6,6 +6,7 @@ export const AddContext = createContext()
 
 const ProductsContext = ({ children }) => {
   const [cartItems, setCartItems] = useState([])
+  const [totalAmount, setTotalAmount] = useState(0)
   const [user, setUser] = useState({ name: 'John Doe', email: 'john@example.com' }) // Example user data
   
   useEffect(()=>{
@@ -30,7 +31,7 @@ const ProductsContext = ({ children }) => {
   }
 
   return (
-    <AddContext.Provider value={{ user, addToCart, cartItems,setCartItems }}>
+    <AddContext.Provider value={{ user, addToCart, cartItems,setCartItems,totalAmount, setTotalAmount }}>
       {children}
     </AddContext.Provider>
   )

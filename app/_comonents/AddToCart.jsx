@@ -1,35 +1,49 @@
 import { AddContext } from '@/Context/Products'
+import Link from 'next/link'
 import React, { useContext } from 'react'
 import { IoMdClose } from 'react-icons/io'
 
 export const AddToCart = ({closeAllModals}) => {
-    const {cartItems,setCartItems} = useContext(AddContext)
-    console.log('from addtocart',cartItems);
+    const { cartItems, setCartItems, totalAmount,setTotalAmount } = useContext(AddContext);
+    const [shopping, setShopping] = React.useState(false);
+    console.log('Cart Items:', totalAmount);
+    
+    // Calculate totals
     const totals = cartItems.reduce(
-        (acc, product) => {
-          acc.totalQuantity += product.quantity;
-          acc.totalPrice += product.price * product.quantity;
-          return acc;
-        },
-        { totalQuantity: 0, totalPrice: 0 }
-      );
-      
-      console.log("Total Quantity:", totals.totalQuantity);
-      const total = parseFloat(totals.totalPrice.toFixed(2));
-      const tax = parseFloat((total * 0.10).toFixed(3)); // 10% tax, rounded to 3 decimal places
-      const totalAmount = parseFloat((total + tax + 10).toFixed(3));
+      (acc, product) => {
+        acc.totalQuantity += product.quantity;
+        acc.totalPrice += product.price * product.quantity;
+        return acc;
+      },
+      { totalQuantity: 0, totalPrice: 0 }
+    );
+    
+    // Destructure the results
+    const { totalQuantity, totalPrice } = totals;
+    console.log("Total Quantity:", totalQuantity);
+    
+    // Tax and total calculation
+    const taxRate = 0.10; // 10%
+    const flatFee = 10; // Flat fee
+    const tax = totalPrice * taxRate;
+    const grandTotal = totalPrice + tax + flatFee;
+    
+    // Update context state with rounded total
+    setTotalAmount(parseFloat(grandTotal.toFixed(3))); 
   const handleDelete =(id)=>{
     const restProducts = cartItems.filter(cart=> cart.id !==id)
     setCartItems(restProducts)
     localStorage.setItem('cartItems', JSON.stringify(restProducts))
   }
-    
+    const handleOff =()=>{
+        setShopping(!shopping)
+    }
     
     
   return (
     <div>  
         <div className="font-sans  mx-auto bg-white py-4">
-            {!cartItems.length>0? <div className='h-40 bg-slate-500'> <h2 className='text-black text-2xl'>No Cart Add</h2></div>:<div className="grid md:grid-cols- gap-4">
+            {!cartItems.length>0? <div className='h-40 bg-slate-500'> <h2 className='text-black text-2xl'>You currently have no items in your cart.</h2></div>:<div className="grid md:grid-cols- gap-4">
                 <div className="md:col-span- bg-gray-100 p-1 rounded-md">
                     <div className='flex justify-between'>
                     <h2 className="text-2xl font-bold text-gray-800">Cart</h2>
@@ -75,9 +89,6 @@ export const AddToCart = ({closeAllModals}) => {
                                 <h4 className="text-base font-bold text-gray-800">${ (cart.quantity*cart.price).toFixed(2)}</h4>
                             </div>
                         </div>))}
-
-                      
-
                     </div>
                 </div>
 
@@ -98,7 +109,7 @@ export const AddToCart = ({closeAllModals}) => {
                     </ul>
 
                     <div className="mt-8 space-y-2">
-                        <button type="button" className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-blue-600 hover:bg-blue-700 text-white rounded-md">Checkout</button>
+                        <button onClick={handleOff} type="button" className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-blue-600 hover:bg-blue-700 text-white rounded-md"><Link href={'/checkout'}>Checkout</Link> </button>
                         <button type="button" className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-transparent text-gray-800 border border-gray-300 rounded-md">Continue Shopping  </button>
                     </div>
                 </div>
