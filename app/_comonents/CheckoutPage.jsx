@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   useStripe,
   useElements,
@@ -8,9 +8,11 @@ import {
   AddressElement,
 } from "@stripe/react-stripe-js";
 import { convertToSubcurrency } from "@/lib/convertToSubcurrency";
+import { AddContext } from "@/Context/Products";
 
 
 const CheckoutPage = ({ amount }) => {
+  const {setCartItems,cartItems} = useContext(AddContext)
   const stripe = useStripe();
   const elements = useElements();
   const [errorMessage, setErrorMessage] = useState();
@@ -28,7 +30,9 @@ const CheckoutPage = ({ amount }) => {
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
   }, [amount]);
-
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
@@ -49,7 +53,7 @@ const CheckoutPage = ({ amount }) => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `http://www.localhost:3000/payment-success?amount=${amount}`,
+        return_url: `http://www.localhost:3000/payment-success`,
       },
     });
 
@@ -87,7 +91,8 @@ const CheckoutPage = ({ amount }) => {
 
       {errorMessage && <div>{errorMessage}</div>}
 
-      <button
+      <button 
+      onClick={()=>setCartItems([])}
         disabled={!stripe || loading}
         className="text-white w-full p-5 bg-black mt-2 rounded-md font-bold disabled:opacity-50 disabled:animate-pulse"
       >

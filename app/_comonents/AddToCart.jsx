@@ -109,7 +109,7 @@ export const AddToCart = ({closeAllModals}) => {
                     </ul>
 
                     <div className="mt-8 space-y-2">
-                        <button onClick={handleOff} type="button" className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-blue-600 hover:bg-blue-700 text-white rounded-md"><Link href={'/checkout'}>Checkout</Link> </button>
+                        <button onClick={()=> closeAllModals()} type="button" className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-blue-600 hover:bg-blue-700 text-white rounded-md"><Link href={'/checkout'}>Checkout</Link> </button>
                         <button type="button" className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-transparent text-gray-800 border border-gray-300 rounded-md">Continue Shopping  </button>
                     </div>
                 </div>
@@ -118,3 +118,6 @@ export const AddToCart = ({closeAllModals}) => {
     </div>
   )
 }
+
+
+

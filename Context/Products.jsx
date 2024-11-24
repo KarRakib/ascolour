@@ -8,13 +8,22 @@ const ProductsContext = ({ children }) => {
   const [cartItems, setCartItems] = useState([])
   const [totalAmount, setTotalAmount] = useState(0)
   const [user, setUser] = useState({ name: 'John Doe', email: 'john@example.com' }) // Example user data
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     const savedCartItems = JSON.parse(localStorage.getItem('cartItems'));
-    if(savedCartItems){
-      setCartItems(savedCartItems)
+    const savedTotalAmount = JSON.parse(localStorage.getItem('totalamount'));
+
+    if (savedCartItems) {
+      setCartItems(savedCartItems);
     }
-  },[])
+    if (savedTotalAmount) {
+      setTotalAmount(savedTotalAmount);
+    }
+
+  }, [])
+  useEffect(() => {
+    localStorage.setItem('totalamount', JSON.stringify(totalAmount));
+  }, [totalAmount]);
   const addToCart = (product) => {
     // Use `find` to check if the product is already in the cart
     const alreadyExists = cartItems.find(cart => cart.id === product.id)
@@ -26,12 +35,12 @@ const ProductsContext = ({ children }) => {
       localStorage.setItem('cartItems', JSON.stringify(updateCart))
       toast.success("Item added to cart!")
     }
-    
+
     console.log('Updated cart:', cartItems)
   }
 
   return (
-    <AddContext.Provider value={{ user, addToCart, cartItems,setCartItems,totalAmount, setTotalAmount }}>
+    <AddContext.Provider value={{ user, addToCart, cartItems, setCartItems, totalAmount, setTotalAmount }}>
       {children}
     </AddContext.Provider>
   )

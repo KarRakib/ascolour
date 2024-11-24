@@ -5,7 +5,7 @@ import MostProduct from '../_comonents/MostProduct'
 import HotItems from '../_comonents/HotItems'
 import Productions from '../_comonents/Productions'
 
-const page = () => {
+const page = ({}) => {
   return (
     <>
     
