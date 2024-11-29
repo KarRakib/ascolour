@@ -51,7 +51,7 @@ const Banner = () => {
         <>
             {/* Deskstop  */}
             <div className=" hidden md:flex w-full h-[450px]">
-                <div className="relative group overflow-hidden">
+                <Link href={'/men'} className="relative group overflow-hidden">
                     <div className="group-hover:brightness-75 text-white">
                         <Image className="h-[450px]" src={'/images/men1.jpg'} width={700} height={240} alt="man1" />
 
@@ -82,9 +82,9 @@ const Banner = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Link>
                 {/* Women */}
-                <div className="relative group overflow-hidden">
+                <Link href={'/women'} className="relative group overflow-hidden">
                     <div className="group-hover:brightness-75 text-white">
                         <Image className="h-[450px]" src={'/images/woman1.jpg'} width={700} height={240} alt="man1" />
 
@@ -115,7 +115,7 @@ const Banner = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Link>
 
             </div>
 

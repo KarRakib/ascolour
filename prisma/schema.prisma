@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Cart {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  productId Json?
+  /// Field referred in an index, but found no data to define the type.
+  userId    Json?
+
+  @@index([productId])
+  @@index([userId])
+}
+
+model Product {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  category    String
+  color       String
+  description String
+  images      String
+  inventory   BigInt
+  price       BigInt
+  size        String
+  store       String
+  style       String
+  title       String
+  userId      String @db.ObjectId
+
+  @@index([userId])
+}
+
+model Purchased {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  productId Json?
+  /// Field referred in an index, but found no data to define the type.
+  userId    Json?
+
+  @@index([productId])
+  @@index([userId])
+}
+
+model Review {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  productId Json?
+  /// Field referred in an index, but found no data to define the type.
+  userId    Json?
+
+  @@index([productId])
+  @@index([userId])
+}
+
+model User {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  email    String @unique
+  name     String
+  password String
+}
+
+model products {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}

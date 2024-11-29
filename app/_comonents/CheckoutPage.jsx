@@ -53,7 +53,7 @@ const CheckoutPage = ({ amount }) => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `http://www.localhost:3000/payment-success`,
+        return_url: `http://www.localhost:3000/payment-success?payment_intent=${clientSecret.split('_secret')[0]}`,
       },
     });
 
